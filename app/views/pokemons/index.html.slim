@@ -1,0 +1,9 @@
+h1 Selecione quaisquer Pokémons de cada jogador para compará-los
+
+= simple_form_for '', url: compare_pokemons_path, method: :post, authenticity_token: true, remote: true do |f|
+  - @pokemons.group_by(&:player_id).each do |player_id, pokemons|
+    .pokemons_list
+      = f.input :pokemon_ids, label: false, required: false, as: :check_boxes, collection: pokemons, label_method: lambda { |i| "#{i.name} - #{i.base_experience} XP" }, value_method: lambda { |i| i.id }, include_hidden: false
+
+  = f.submit 'Comparar'
+  = link_to 'Efetuar troca', trade_path, class: 'trade_button', method: :post

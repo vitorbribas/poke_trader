@@ -1,0 +1,10 @@
+<% if params[:pokemon_ids].present? %>
+  <% if @comparison_result %>
+    alert('Esta troca é justa! Utilize o link "Efetuar troca" para concluir a troca.')
+    $('.trade_button').css('display', 'block')
+  <% else %>
+    alert('Esta troca NÃO é justa')
+  <% end %>
+<% else %>
+  alert('Ops, selecione Pokémons para comparar!')
+<% end %>

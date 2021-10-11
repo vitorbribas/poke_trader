@@ -1,5 +1,5 @@
-h1 Welcome to Poke Trader
-p Select two players to compare their Pokemons and trade then
+h1 Bem vindo ao Poke Trader
+p Selecione dois jogadores para comparar seus Pokémons
 
 = simple_form_for '', url: choose_players_path, method: :post, authenticity_token: true do |f|
   = f.input :player_ids, label: false, required: false, as: :check_boxes, collection: @players, label_method: lambda { |i| "#{i.full_name} - #{i.pokemons.length} Pokemons" }, value_method: lambda { |i| i.id }, include_hidden: false

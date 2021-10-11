@@ -9,3 +9,5 @@ import "channels"
 
 Rails.start()
 ActiveStorage.start()
+
+window.jQuery = window.$ = require('jquery')
