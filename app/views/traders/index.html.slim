@@ -1,0 +1,9 @@
+h1 Trocas realizadas entre jogadores
+
+- @trades&.each do |trade|
+  .trade_card
+    p ##{trade.id}
+    p Troca realizada em: #{trade.created_at.try(:strftime, "%d/%m/%Y %H:%M")}
+
+    - trade.trade_objects.each do |trade_object|
+      p #{trade_object.player.full_name} enviou: #{trade_object.pokemons.map(&:name).to_sentence}
