@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'players#index'
+
   get  'players'        => 'players#index',          as: :players
   post 'players/choose' => 'players#choose_players', as: :choose_players
 
