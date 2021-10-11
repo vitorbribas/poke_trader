@@ -6,6 +6,8 @@ class Player < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   has_many :pokemons, dependent: :nullify
+  has_many :trade_objects, dependent: :destroy
+  has_many :trades, through: :trade_objects
 
   def full_name
     "#{first_name} #{last_name}"
